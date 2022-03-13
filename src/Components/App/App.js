@@ -52,7 +52,7 @@ export default class App extends React.Component {
 
   savePlaylist(){
     let trackURIs = this.state.playlistTracks.map((track) => {
-      trackURIs.push(track.uri);
+      return track.uri;
     });
     console.log(trackURIs);
     Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
