@@ -40,7 +40,7 @@ export default class App extends React.Component {
 
   removeTrack(track){
     const remainingTracks = this.state.playlistTracks.filter((playlistTrack) => {
-      return track.id != playlistTrack.id;
+      return track.id !== playlistTrack.id;
     });
 
     this.setState({playlistTracks: remainingTracks});
@@ -51,9 +51,7 @@ export default class App extends React.Component {
   }
 
   savePlaylist(){
-    let trackURIs = [];
-    console.log(this.state.playlistTracks);
-    this.state.playlistTracks.map((track) => {
+    let trackURIs = this.state.playlistTracks.map((track) => {
       trackURIs.push(track.uri);
     });
     console.log(trackURIs);
