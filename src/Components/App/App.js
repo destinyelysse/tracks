@@ -22,7 +22,6 @@ export default class App extends React.Component {
   }
 
   addTrack(track) {
-    console.log(track);
     let trackIsNew = true;
 
     for(let i=0; i<this.state.playlistTracks.length; i++){
@@ -54,14 +53,12 @@ export default class App extends React.Component {
     let trackURIs = this.state.playlistTracks.map((track) => {
       return track.uri;
     });
-    console.log(trackURIs);
     Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
       this.setState({playlistName: "New Playlist", playlistTracks: []});
     });
   }
 
   search(searchTerm){
-    console.log("searching: ", searchTerm);
     Spotify.search(searchTerm).then(searchResults => {
       this.setState({searchResults: searchResults});
     });
